@@ -4,13 +4,16 @@ When there is a film adpation of a book coming to theaters, I try to read a book
 
 There are many variables to consider:
 - year of publication
-- number of awards won -- distinguish between prestigious and local
+- number of awards won -- distinguish between prestigious and local, etc.
 - author's reputation (determined by number books already published)
 - publishing company
 - sales in the first year
-- number of copies published vs sales
+- book length, i.e. number of pages, words, etc.
+- whether or not first edition sold out
 - genre
 - type of literary work--book, graphic novel, etc.
+- published in other languages?
+- age demographic, i.e. appropriate for children, teens, adult
 
 As film did not become well-established until the 1900s, the focus will be on post-1900 literature--including graphic novels and plays.
 
@@ -21,11 +24,18 @@ As this is a classification problem, I will use decision trees and logistic regr
 The next step of this project is to collect data and see if this problem can be modeled.
 
 # Proposal 2: Do restaurant health inspection scores and food critic scores correlate with customer feedback?
-Many use the top restaurant review sites such as Yelp or Zagat to make their choice of restaurant. However, these reviews are all customer feedback and few sites incorporate health inspection scores and food critic scores. Would these selections change if a potential customer is able to review all three variables? Or are there other variables worth considering when calculating whether or not the restaurant be a good fit for you? (For example, I do not like spicy food. If I am not familiar with the dish/cuisine and all the reviews described it as "good", how will I know that the other items on the menu be of my liking?)
+Many use the top restaurant review sites such as Yelp or Zagat to make their choice of restaurant. However, these reviews are all customer feedback and few sites incorporate health inspection scores and food critic scores. Would these selections change if a potential customer is able to review all three variables? Or are there other variables worth considering when calculating whether or not the restaurant be a good fit for you? (For example, I do not like spicy food. If I am not familiar with the dish/cuisine and all the reviews described it as "good", how will I know that the other items on the menu be of my liking?) I will explore potential variables besides reviews and scores to see if a model can help make a better choice for you.
+
+Considering the following variables:
+- Cuisine
+- Length of operation
+- Price range of menu items
+- Scipy index?
 
 My focus will be the Austin area--where I am able to access the local health inspection scores. If this project is chosen, I will include other cities that an Austin local may look for restaurants.
 
 Databases: https://data.austintexas.gov/Health-and-Community-Services/Restaurant-Inspection-Scores/ecmv-9xxi
+Yelp, Zagat, Google, Facebook
 
 As this is a classification problem, I will use decision trees and linear regression models to predict which restaurants be a "good fit". My work will be presented in slide presentations and if there is enough time, my goal is to make a web app--similar to a recommender system--where I provide the restaurant name and see the ratings and reviews assocaited with it.
 
