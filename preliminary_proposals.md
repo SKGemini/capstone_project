@@ -18,6 +18,8 @@ There are many variables to consider:
 As film did not become well-established until the 1900s, the focus will be on post-1900 literature--including graphic novels and plays.
 
 Databases: IMDB, Library of Congress
+https://www.fictiondb.com/search/genre~books-to-movies-tv~3141.htm
+http://www.worldcat.org
 
 As this is a classification problem, I will use decision trees and logistic regression models to predict which works become a source for a visual work. My work will be presented in slide presentations and if there is enough time, my goal is to make a web app--similar to a recommender system--where I can provide basic info about the work that I am interested in and see the likelihood that it will become a film.
 
