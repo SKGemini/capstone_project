@@ -17,9 +17,8 @@ There are many variables to consider:
 
 As film did not become well-established until the 1900s, the focus will be on post-1900 literature--including graphic novels and plays.
 
-Databases: IMDB, Library of Congress
-https://www.fictiondb.com/search/genre~books-to-movies-tv~3141.htm
-http://www.worldcat.org
+Databases: [IMDB](http://www.imdb.com/), [FictionDb](https://www.fictiondb.com/search/genre~books-to-movies-tv~3141.htm), 
+[WorldCat](http://www.worldcat.org)
 
 As this is a classification problem, I will use decision trees and logistic regression models to predict which works become a source for a visual work. My work will be presented in slide presentations and if there is enough time, my goal is to make a web app--similar to a recommender system--where I can provide basic info about the work that I am interested in and see the likelihood that it will become a film.
 
@@ -36,8 +35,7 @@ Considering the following variables:
 
 My focus will be the Austin area--where I am able to access the local health inspection scores. If this project is chosen, I will include other cities that an Austin local may look for restaurants.
 
-Databases: https://data.austintexas.gov/Health-and-Community-Services/Restaurant-Inspection-Scores/ecmv-9xxi
-Yelp, Zagat, Google, Facebook
+Databases: [Restaurant Inspection Scores](https://data.austintexas.gov/Health-and-Community-Services/Restaurant-Inspection-Scores/ecmv-9xxi), Yelp, Zagat, Google, Facebook
 
 As this is a classification problem, I will use decision trees and linear regression models to predict which restaurants be a "good fit". My work will be presented in slide presentations and if there is enough time, my goal is to make a web app--similar to a recommender system--where I provide the restaurant name and see the ratings and reviews assocaited with it.
 
