@@ -5,6 +5,9 @@ Many films have turned to books as plot sources. It seems that any book can be c
 ## Background
 I am appealing to two audiences: book/movie lovers and film producers. As an avid reader, I enjoy reading books of various genres and topics--some of which I deem worthy for a movie but hasn't been made into fruition. This project can highlight "hidden gems" or advocate for books. For film producers, they could do a pre-screening of books to consider. My approach is to help improve the movie experience with more variety and help keep book sales afloat.
 
+Similar projects to this one include:
+- Aligning Books to Movies[http://yknzhu.wixsite.com/mbweb]
+
 ## Data Collection
 Features considered:
 ```
