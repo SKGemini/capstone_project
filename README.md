@@ -11,13 +11,13 @@ Similar projects to this one include:
 ## Data Collection
 
 I collected data from the following resources:
-```
+
 - [List of fiction works made into feature films](https://en.wikipedia.org/wiki/Lists_of_fiction_works_made_into_feature_films)
 - [GoodReads API](https://www.goodreads.com/api/index#search.books)
 - [GoodReads Dataset from Kaggle](https://www.kaggle.com/zygmunt/goodbooks-10k)
 - [New York Times API](https://developer.nytimes.com)
 - [Book-Crossing Dataset](http://www2.informatik.uni-freiburg.de/~cziegler/BX/)
-```
+
 
 Features considered:
 ```
@@ -30,6 +30,7 @@ Features considered:
 
 ## Data Analysis
 I explored the movies dataset to glean insights about how I should approach the books dataset. As this is a classification problem (movie or not), I used gradient boosting and logistic regression models for predictions. When exploring the books dataset, I plan to use ML algorithms to provide likelihoods for each book.
+- [GoodReads Library](https://pypi.org/project/Goodreads/)
 
 ## Presentation
 - Slideshow presentation about my data analysis (priority)
