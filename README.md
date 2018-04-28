@@ -12,7 +12,9 @@ Given a certain year, there could be up to 70 films based on books. However, con
 ```
 Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a cinematic adaptation.
 
-![Most Popular Literary Genres](https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png)
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png">
+</p>
 
 I am appealing to two audiences: book/movie lovers and film producers. As an avid reader, I enjoy reading books of various genres and topics--some of which I deem worthy for a movie but hasn't been made into fruition. This project can highlight "hidden gems" or advocate for books. For film producers, this project potentially opens the possibility of pre-screening books to consider.
 
