@@ -6,9 +6,9 @@ In light of current cinema, the market is demanding more and more material, thus
 
 Given a certain year, there could be up to 70 films based on books. However, consider the following statistics:
 ```
-- 129,864,880 books (and counting) (Source: [Mashable/Google](https://mashable.com/2010/08/05/number-of-books-in-the-world/#P1TH6qxOSmqg))
+- 129,864,880 books (and counting) (Source: [Mashable/Google](https://mashable.com/2010/08/05/number-of-books-in-the-world/#P1TH6qxOSmqg) )
 - 3,264,512 IMDB titles (and counting)
-  - 30,548 titles with tag "Based On Novel" (Source: [IMDb](https://www.imdb.com/search/keyword?keywords=based-on-novel))
+  - 30,548 titles with tag "Based On Novel" (Source: [IMDb](https://www.imdb.com/search/keyword?keywords=based-on-novel) )
 ```
 Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a cinematic adaptation.
 
