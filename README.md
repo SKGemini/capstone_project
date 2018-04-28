@@ -16,7 +16,6 @@ Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a
 
 <p align="center">
   <img src="https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png">
-  <caption align="bottom">{{Source: [The Writing Cooperative](https://writingcooperative.com/what-are-the-most-popular-literary-genres-6db5c69928cc)}}</caption>
 </p>
 
 I am appealing to two audiences: book/movie lovers and film producers. As an avid reader, I enjoy reading books of various genres and topics--some of which I deem worthy for a movie but hasn't been made into fruition. This project can highlight "hidden gems" or advocate for books. For film producers, this project potentially opens the possibility of pre-screening books to consider.
@@ -49,9 +48,6 @@ Features considered:
 ## Data Analysis
 I explored the movies dataset to glean insights about how I should approach the books dataset. As this is a classification problem (movie or not), I used gradient boosting and logistic regression models for predictions. When exploring the books dataset, I plan to use ML algorithms to provide likelihoods for each book.
 - [GoodReads Library](https://pypi.org/project/Goodreads/)
-
-
-
 
 ## Presentation
 - Slideshow presentation about my data analysis (priority)
