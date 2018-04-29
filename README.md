@@ -1,10 +1,10 @@
 # Write...Read...Action!
 
-In light of current cinema, the market is demanding more and more material, thus many have turned to literary works as plot sources. While adapting them to screen is easier since a script is already in existence, translation from paper to film is difficult for certain genres and not every book is deemed "worthy" for such a resource-intensive project. Also, it's not feasible to produce a film adaption for every single book. So what features of a book entails it to have a cinematic adaption? This project will explore those features to see if one can predict the likelihood of a film adaptation for a book.
+In light of current cinema, many have turned to literary works as plot sources. While adapting them to screen is easier since a script is already in existence, translation from paper to film is difficult for certain genres and not every book is deemed "worthy" for such a resource-intensive project. Also, it's not feasible to produce a film adaption for every single book. So what features of a book entails it to have a cinematic adaption? This project will explore those features to see if one can predict the likelihood of a film adaptation for a book.
 
 ## Background
 
-Given a certain year, there could be up to 70 films based on books. However, consider the following statistics:
+In a given year, there could be up to 70 films based on books. However, consider the following statistics:
 ```
 - 129,864,880 books (and counting)
 - 3,264,512 IMDB titles (and counting)
@@ -12,7 +12,7 @@ Given a certain year, there could be up to 70 films based on books. However, con
 ```
 Sources: [Mashable/Google](https://mashable.com/2010/08/05/number-of-books-in-the-world/#P1TH6qxOSmqg), [IMDb](https://www.imdb.com/search/keyword?keywords=based-on-novel)
 
-Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a cinematic adaptation.
+Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a cinematic adaptation. 
 
 <p align="center">
   <img src="https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png">
