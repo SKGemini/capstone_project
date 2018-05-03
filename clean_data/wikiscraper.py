@@ -1,18 +1,19 @@
 from bs4 import BeautifulSoup
 import requests, csv, os, platform, unicodedata, json
 
-#Strip text of accents
 def strip_accents(string):
     '''
     INPUT: string with accents
     OUTPUT: string with no accents
+    Strip string of accents.
     '''
     return ''.join(c for c in unicodedata.normalize('NFD',string) if unicodedata.category(c) != 'Mn')
 
 def scrape_table(url):
-    '''Web scrape a wikipedia page for tables
+    '''
     INPUT: url
     OUTPUT: bs4.element.ResultSet
+    Web scrape a wikipedia page for tables
     '''
     r = requests.get(url)
     soup = BeautifulSoup(r.content,"lxml")
@@ -24,9 +25,10 @@ def scrape_table(url):
         return results
 
 def urls_from_table(cell):
-    '''Extract url otherwise blank
+    '''
     INPUT: cell
     OUTPUT: url string or blank string
+    Extract url otherwise blank
     '''
     base_url = 'https://en.wikipedia.org'
     urls = cell.findAll("a",href=True)
@@ -43,8 +45,9 @@ def urls_from_table(cell):
 
 def clean_cells(table):
     '''
-    INPUT: table
+    INPUT: bs4.element.ResultSet
     OUTPUT: list
+    Takes a wikitable and returns text and urls.
     '''
     cleaned_cells = []
     for row in table.findAll("tr"):
@@ -78,6 +81,7 @@ def infobox(table):
     '''
     INPUT: table
     OUTPUT: list
+    Extracts information from wikitable.
     '''
     try:
         info = []
@@ -91,6 +95,7 @@ def info(cells):
     '''
     INPUT: list
     OUTPUT: list of lists
+    Extracts information from cells of tables.
     '''
     new = []
     for idx,cell in enumerate(cells):
@@ -119,6 +124,7 @@ def all_info(url, filename):
     '''
     INPUT: url, string
     OUTPUT: json file
+    Extracts information from wikitables for a given url and writes it to a json file.
     '''
     wikitables = scrape_table(url)
     lists_dict = []
@@ -133,6 +139,11 @@ def all_info(url, filename):
         json.dump(lists_dict,f)
 
 def infobox_book(url):
+    '''
+    INPUT: url
+    OUTPUT: list of lists
+    Extract information from wikitables for a given url.
+    '''
     try:
         page = requests.get(url, params={'action': 'raw'}).text
         info = []
@@ -168,6 +179,11 @@ def infobox_book(url):
         return [['Info','missing']]
 
 def infobox_author(url):
+    '''
+    INPUT: url
+    OUTPUT: list of lists
+    Extract information from wikitables for a given url.
+    '''
     try:
         page = requests.get(url, params={'action': 'raw'}).text
         info = []
@@ -202,6 +218,11 @@ def infobox_author(url):
         return [['Info','missing']]
 
 def retrieve_info(table):
+    '''
+    INPUT: bs4.element.ResultSet
+    OUTPUT: list of lists
+    Extract information from wikitables.
+    '''
     base_url = 'https://en.wikipedia.org'
     #retrieve_info(table0)
     cleaned_cells = []
@@ -241,6 +262,11 @@ def retrieve_info(table):
     return cleaned_cells
 
 def all_together(url):
+    '''
+    INPUT: url
+    OUTPUT: list of lists
+    Extract information from wikitables for a given url.
+    '''
     wikitables = scrape_table(url)
     all_info = []
     for table in wikitables:
