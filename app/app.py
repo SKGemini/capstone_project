@@ -42,6 +42,7 @@ def form():
 	widget_html = None
 	title = None
 	author = None
+	description = None
 	form = ReusableForm(request.form)
 	if request.method == 'POST':
 		book = request.form['book']
@@ -57,10 +58,12 @@ def form():
 				author = search['author']
 				widget_html = widgets.HTMLString(''.join(search['widget']))
 				image_url = search['image_url']
+				description = widgets.HTMLString(''.join(search['description']))
 		else:
 			flash('Error: Missing fields')
 
-	return render_template('form.html',form=form,image=image_url,title=title,author=author,widget=widget_html)
+	return render_template('form.html',form=form,image=image_url,
+	description=description,title=title,author=author,widget=widget_html)
 
 
 if __name__ == '__main__':
