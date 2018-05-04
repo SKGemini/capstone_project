@@ -1,6 +1,8 @@
 # Write...Read...Action!
 
-In light of current cinema, many have turned to literary works as plot sources. While adapting them to screen is easier since a script is already in existence, translation from paper to film is difficult for certain genres and not every book is deemed "worthy" for such a resource-intensive project. Also, it's not feasible to produce a film adaption for every single book. So what features of a book entails it to have a cinematic adaption? This project will explore those features to see if one can predict the likelihood of a film adaptation for a book.
+In light of current cinema, many have turned to literary works as plot sources. While adapting them to screen is easier since a script is already in existence, translation from paper to film is difficult for certain genres and it's not practical to produce a cinematic adaption for every single book. I explored which features help predict the likelihood of a film adaptation for a book. 
+
+As an avid reader, I enjoyed doing a deep dive into the research and identify books of various genres and topics--some of which I deem worthy for a movie but hasn't been made into fruition. This project can highlight "hidden gems" and help entities such as publishing companies and film production studios as a method of pre-screening manuscripts/books.
 
 ## Background
 
@@ -18,8 +20,6 @@ Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a
   <img src="https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png">
 </p>
 
-I am appealing to two audiences: book/movie lovers and film producers. As an avid reader, I enjoy reading books of various genres and topics--some of which I deem worthy for a movie but hasn't been made into fruition. This project can highlight "hidden gems" or advocate for books. For film producers, this project potentially opens the possibility of pre-screening books to consider.
-
 Similar projects and articles about books becoming movies:
 - [Aligning Books to Movies](http://yknzhu.wixsite.com/mbweb) - provides descriptive explanations for visual content
 - [Book Word Count vs Movie Length](https://www.overthinkingit.com/2013/08/12/book-word-count-movie-length-2/)
@@ -35,20 +35,19 @@ I collected data from the following resources:
 - [Book-Crossing Dataset](http://www2.informatik.uni-freiburg.de/~cziegler/BX/)
 - [IMDb](https://www.imdb.com/?ref_=nv_home)
 
-
 Features considered:
 ```
 - year of publication
-- publishing company
 - number of pages
-- genre
-- bestsellers list
+- genre such as romance and historical fiction
+- information about the author such as number of works in existence
+- average Goodreads rating of book
+- description of book
 ```
 
 ## Data Analysis
-I explored the movies dataset to glean insights about how I should approach the books dataset. As this is a classification problem (movie or not), I used gradient boosting and logistic regression models for predictions. When exploring the books dataset, I plan to use ML algorithms to provide likelihoods for each book.
-- [GoodReads Library](https://pypi.org/project/Goodreads/)
+As this is a classification problem (has movie or not), I used logistic regression models for my predictions.
 
 ## Presentation
-- Slideshow presentation about my data analysis (priority)
-- Web app that operates like a recommender system where I can provide basic info about the work that I am interested in and see the likelihood that it will become a film (bonus)
+- pdf link to presentation
+- web app
