@@ -16,10 +16,6 @@ Sources: [Mashable/Google](https://mashable.com/2010/08/05/number-of-books-in-th
 
 Only 0.9% of cinematic titles are based on a novel and only 0.2% of books have a cinematic adaptation. 
 
-<p align="center">
-  <img src="https://cdn-images-1.medium.com/max/1600/0*R7TtgnXa5a__b4RT.png">
-</p>
-
 Similar projects and articles about books becoming movies:
 - [Aligning Books to Movies](http://yknzhu.wixsite.com/mbweb) - provides descriptive explanations for visual content
 - [Book Word Count vs Movie Length](https://www.overthinkingit.com/2013/08/12/book-word-count-movie-length-2/)
