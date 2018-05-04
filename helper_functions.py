@@ -1,7 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import itertools, pickle
+import itertools, pickle, string
+from sklearn.metrics import confusion_matrix
+from bs4 import BeautifulSoup
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.decomposition import NMF, LatentDirichletAllocation
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem.snowball import SnowballStemmer
 
+# Write out to file
 def pickle_model(model, filename):
     '''
     INPUT: model instance, string
@@ -11,6 +19,21 @@ def pickle_model(model, filename):
     #Example filename = 'GB_model.pk'
     pk.dump(model, open(filename, 'w'), 2)
 
+def write_to_file(filename,lst):
+    '''
+    INPUT: string, list
+    OUTPUT: file
+    Take in a string as filename and list and writes it to a text file.
+    '''
+    with open(filename,'w') as f:
+        for item in lst:
+            try:
+                f.write(item)
+                f.write(os.linesep)
+            except:
+                pass
+
+# Cleaning string format
 def clean_string(string):
     '''
     INPUT: string
@@ -21,16 +44,71 @@ def clean_string(string):
 
 def htmltostring(df,column):
     '''
-    INPUT: dataframe, string
-    OUTPUT: list of strings
     For a given dataframe and column, each column value is changed
     from HTML to string format
+
+    INPUT: dataframe, string
+
+    OUTPUT: list of strings
     '''
     description = []
     for each in df[column].values:
         soup = BeautifulSoup(each,"lxml")
         description.append(soup.get_text().replace('\xa0','').replace('\n',''))
     return description
+
+# NLP
+def tokenize(doc):
+    '''
+    INPUT: string
+    OUTPUT: list of strings
+    Tokenize and stem/lemmatize the document.
+    '''
+    snowball = SnowballStemmer('english')
+    return [snowball.stem(word) for word in word_tokenize(doc.lower())]
+
+def vectorize(df,n_features=1000):
+    '''
+    INPUT: DATAFRAME
+    OUTPUT: vectorized description
+    Grab description from DataFrame and return vectorized description
+    '''
+    description = htmltostring(df,'description')
+    vect = TfidfVectorizer(stop_words='english',max_df=0.95, min_df=2,max_features=n_features,tokenizer=tokenize)
+    desc_vect = vect.fit_transform(description)
+
+    return vect, desc_vect
+
+def print_top_words(model, feature_names, n_top_words):
+    '''
+    INPUT: classifier, list of strings, integer
+    OUTPUT: None
+    '''
+    for topic_idx, topic in enumerate(model.components_):
+        message = "Topic #%d: " % topic_idx
+        message += " ".join([feature_names[i]
+                             for i in topic.argsort()[:-n_top_words - 1:-1]])
+        print(message)
+    print()
+
+# For confusion matrix and performance metrics
+def standard_confusion_matrix(y_true, y_pred):
+    """Make confusion matrix with format:
+                  -----------
+                  | TP | FP |
+                  -----------
+                  | FN | TN |
+                  -----------
+    Parameters
+    ----------
+    y_true : ndarray - 1D
+    y_pred : ndarray - 1D
+    Returns
+    -------
+    ndarray - 2D
+    """
+    [[tn, fp], [fn, tp]] = confusion_matrix(y_true, y_pred)
+    return np.array([[tp, fp], [fn, tn]])
 
 def plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues):
     '''
@@ -65,19 +143,22 @@ def plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',c
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
-def write_to_file(filename,lst):
+def movies_matrix(x_test,y_test,y_pred):
     '''
-    INPUT: string, list
-    OUTPUT: file
-    Take in a string as filename and list and writes it to a text file.
+    INPUT: numpy array, numpy array, numpy array
+    OUTPUT: plot
     '''
-    with open(filename,'w') as f:
-        for item in lst:
-            try:
-                f.write(item)
-                f.write(os.linesep)
-            except:
-                pass
+    #Make confusion matrix
+    plot_confusion_matrix(standard_confusion_matrix(y_test,y_pred),classes=['movie','not_movie'],title='Confusion matrix, without normalization')
+    outcomes = standard_confusion_matrix(y_test,y_pred).ravel() #np.array([[tp, fp], [fn, tn]])
+    tp, fp, fn, tn = outcomes[0], outcomes[1], outcomes[2], outcomes[3]
+    precision = tp / (tp + fp)
+    recall = tp / (tp + fn)
+    f1_score = 2 * precision * recall / (precision + recall)
+    print("Accuracy: {}".format(log.score(x_test,y_test))) #Print accuracy score
+    print("Precision: {}".format(precision))
+    print("Recall: {}".format(recall))
+    print("F1 Score: {}".format(f1_score))
 
 def sampling(df,feature,majority_n, minority_n, sample_type='both'):
     '''
@@ -101,6 +182,5 @@ def sampling(df,feature,majority_n, minority_n, sample_type='both'):
     else:
         return df_upsampled, df_downsampled
 
-
 #if __name__ == '__main__':
-    #all_info(sysarg[0],sysarg[1])
+    #main()
