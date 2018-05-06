@@ -1,7 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import itertools, pickle, string
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, roc_auc_score
+from sklearn.model_selection import train_test_split
+from sklearn.utils import resample
+
 from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.decomposition import NMF, LatentDirichletAllocation
@@ -143,22 +147,29 @@ def plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',c
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
-def movies_matrix(x_test,y_test,y_pred):
+def movies_matrix(model, X, y):
     '''
-    INPUT: numpy array, numpy array, numpy array
+    INPUT: classifier, dataframe, dataframe
     OUTPUT: plot
     '''
-    #Make confusion matrix
-    plot_confusion_matrix(standard_confusion_matrix(y_test,y_pred),classes=['movie','not_movie'],title='Confusion matrix, without normalization')
+    x_train, x_test, y_train, y_test = train_test_split(X.values,y.values)
+    model.fit(x_train,y_train)
+    y_pred = model.predict(x_test)
+
     outcomes = standard_confusion_matrix(y_test,y_pred).ravel() #np.array([[tp, fp], [fn, tn]])
     tp, fp, fn, tn = outcomes[0], outcomes[1], outcomes[2], outcomes[3]
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
     f1_score = 2 * precision * recall / (precision + recall)
-    print("Accuracy: {}".format(log.score(x_test,y_test))) #Print accuracy score
+    print("Accuracy: {}".format(model.score(x_test,y_test))) #Print accuracy score
     print("Precision: {}".format(precision))
     print("Recall: {}".format(recall))
     print("F1 Score: {}".format(f1_score))
+    print("ROC AUC Score: {}".format(roc_auc_score(y_test,y_pred)))
+    print("\n")
+    #Make confusion matrix
+    plot_confusion_matrix(standard_confusion_matrix(y_test,y_pred),classes=['movie','not_movie'],title='Confusion matrix, without normalization')
+
 
 def sampling(df,feature,majority_n, minority_n, sample_type='both'):
     '''
