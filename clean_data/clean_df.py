@@ -39,16 +39,21 @@ def cleaned_data(df):
     all_tags = list(itertools.chain.from_iterable(tags)) #join list of lists
     counts = Counter(all_tags) #count frequency of tags
     mod_tag = []
-    top_keys = set(dict(counts.most_common(500)).keys()) #find most common tags
+    top_keys = set(dict(counts.most_common(300)).keys()) #find most common tags
     for tag in tags:
-        mod_tag.append([x for x in tag if x in top_keys])
+        lst = [x for x in tag if x in top_keys]
+        if lst:
+            mod_tag.append(lst)
+        else:
+            mod_tag.append(["None"])
     genres = pd.DataFrame(np.array(mod_tag))
     genres.columns = ['mod_tags']
-    mod_data = pd.merge(df,genres,left_index=True,right_index=True)
+    mod_data = pd.merge(df.reset_index(),genres.reset_index(),left_index=True,right_index=True)
+    
     s = pd.Series(mod_data['mod_tags'])
-    all_books = pd.concat([mod_data.reset_index(),pd.get_dummies(s.apply(pd.Series).stack()).sum(level=0)],axis=1)
+    all_books = pd.merge(mod_data,pd.get_dummies(s.apply(pd.Series).stack()).sum(level=0),left_index=True,right_index=True)
 
-    data = all_books.drop(['index','book_id','author','birth_date','widget','isbn','hometown','image_url','tags','mod_tags'],axis=1)
+    data = all_books.drop(['book_id','author','birth_date','widget','isbn','hometown','image_url','tags','mod_tags'],axis=1)
 
     data['has_audiobook'] = data['audible'] + data['audio'] + data['audio-book'] + data['audio-books'] + data['audiobook'] + data['audiobooks']
     data['has_audiobook'] = data['has_audiobook'].apply(lambda x: 1 if x > 0 else 0)
