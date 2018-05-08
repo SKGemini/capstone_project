@@ -41,9 +41,14 @@ Features considered:
 - summary of book
 ```
 
+As I am working with imbalanced classes, I worked with a smaller subset of data. I accessed information on about 25,000 books and their authors through the Python interace for Goodreads API. Additionally, I relied on web scraping Wikipedia and IMDb to determine whether or not a book has a film adaptation. 
+
 ## Data Analysis
 For summary for each book, I used the Natural Language Toolkit to split them into words, filtered out the most common words, and converted them into a matrix of features to be analyzed with the rest of my categorical features. After tuning hyperparameters on several classifers, I settled on a model using logistic regression as the best performing with a precision of 25% and a recall of 88%. I optimized recall as I wanted to minimize the number of books that do not have a film adaptation as having one.
-![alt text]https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png
+
+![alt text](https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png "Metascore Distributions")
+
+I made a normalized histogram of my prediction scores. As shown, my model did a satsifactory job where the average predictions were 24% for books without film adaptations and 75% for books with film adaptations. The most interesting cases are books that were given high probabilities but do not have film adaptation. I anticipate that these books will have a film adaptation sometime in the future.
 
 ## Presentation
 - [PDF of presentation](https://github.com/SKGemini/capstone_project/blob/master/Write...Read...Action!.pdf)
