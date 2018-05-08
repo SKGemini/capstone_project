@@ -43,7 +43,7 @@ Features considered:
 
 ## Data Analysis
 For summary for each book, I used the Natural Language Toolkit to split them into words, filtered out the most common words, and converted them into a matrix of features to be analyzed with the rest of my categorical features. After tuning hyperparameters on several classifers, I settled on a model using logistic regression as the best performing with a precision of 25% and a recall of 88%. I optimized recall as I wanted to minimize the number of books that do not have a film adaptation as having one.
-![Metascore Distributions]https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png
+![alt text]https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png
 
 ## Presentation
 - [PDF of presentation](https://github.com/SKGemini/capstone_project/blob/master/Write...Read...Action!.pdf)
