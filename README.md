@@ -38,12 +38,14 @@ Features considered:
 - genre such as romance and historical fiction
 - information about the author such as number of works in existence
 - average Goodreads rating of book
-- description of book
+- summary of book
 ```
 
 ## Data Analysis
-As this is a classification problem (has movie or not), I used logistic regression models for my predictions.
+For summary for each book, I used the Natural Language Toolkit to split them into words, filtered out the most common words, and converted them into a matrix of features to be analyzed with the rest of my categorical features. After tuning hyperparameters on several classifers, I settled on a model using logistic regression as the best performing with a precision of 25% and a recall of 88%. I optimized recall as I wanted to minimize the number of books that do not have a film adaptation as having one.
+![Metascore Distributions]https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png
 
 ## Presentation
-- pdf link to presentation
-- web app
+- [PDF of presentation](https://github.com/SKGemini/capstone_project/blob/master/Write...Read...Action!.pdf)
+- [Recorded presentation](https://www.youtube.com/watch?v=TmMkflxlJ6U&index=7&list=PLxtztEze-DRedrinVPfmde2jq9UKwxBzq)
+- [Demo Web App](https://github.com/SKGemini/capstone_project/blob/master/images/demo.mov)
