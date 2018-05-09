@@ -46,7 +46,7 @@ As I am working with imbalanced classes, I worked with a smaller subset of data.
 ## Data Analysis
 For summary for each book, I used the Natural Language Toolkit to split them into words, filtered out the most common words, and converted them into a matrix of features to be analyzed with the rest of my categorical features. After tuning hyperparameters on several classifers, I settled on a model using logistic regression as the best performing with a precision of 25% and a recall of 88%. I optimized recall as I wanted to minimize the number of books that do not have a film adaptation as having one.
 
-![alt text](https://github.com/SKGemini/capstone_project/blob/master/images/metascores.png "Metascore Distributions")
+![alt text](https://github.com/SKGemini/capstone_project/blob/master/media/frequency.png "Frequency of Predictions")
 
 I made a normalized histogram of my prediction scores. As shown, my model did a satsifactory job where the average predictions were 24% for books without film adaptations and 75% for books with film adaptations. The most interesting cases are books that were given high probabilities but do not have film adaptation. I anticipate that these books will have a film adaptation sometime in the future.
 
